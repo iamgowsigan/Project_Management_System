@@ -1,0 +1,205 @@
+<?php
+
+$uid = $_SESSION['uid'];
+$power = $_SESSION['power'];
+
+
+
+?>
+<div class="left-side-menu">
+
+	<a href="dashboard.php" class="logo text-center logo-light">
+		<span class="logo-lg">
+			<img src="assets/images/logowhitetext.png" alt="" height="45">
+		</span>
+		<span class="logo-sm">
+			<img src="assets/images/logowhitetext.png" alt="" height="50">
+		</span>
+	</a>
+
+	<!-- LOGO -->
+	<a href="dashboard.php" class="logo text-center logo-dark">
+		<span class="logo-lg">
+			<img src="assets/images/logowhitetext.png" alt="" height="45">
+		</span>
+		<span class="logo-sm">
+			<img src="assets/images/logowhitetext.png" alt="" height="50">
+		</span>
+	</a>
+
+
+
+	<div class="h-100" id="left-side-menu-container" data-simplebar>
+
+
+		<!--- Sidemenu -->
+		<ul class="metismenu side-nav">
+
+
+
+			<li class="side-nav-title side-nav-item">
+				<?php mylan("SETTINGS ", " إعدادات"); ?>
+			</li>
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link">
+					<i class="mdi mdi-shield-star"></i>
+					<span>
+						<?php mylan("Administrator ", "مدير "); ?>
+					</span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li> <a href="myaccount.php">
+							<?php mylan(" My Account", "حسابي "); ?>
+						</a> </li>
+					<li> <a href="account.php">
+							<?php mylan("Project Info ", "معلومات المشروع "); ?>
+						</a> </li>
+					<li> <a href="admin-user.php">
+							<?php mylan("User Management ", " إدارةالمستخدم"); ?>
+						</a> </li>
+					<li> <a href="view-userlog.php">
+							<?php mylan("User Logs ", "سجلات المستخدم "); ?>
+						</a> </li>
+					<li> <a href="theams-settings.php">
+							<?php mylan("Themes Settings ", "إعدادات السمات "); ?>
+						</a> </li>
+
+
+				</ul>
+			</li>
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link">
+					<i class="mdi mdi-cellphone-android"></i>
+					<span>
+						<?php mylan("Application ", "طلب "); ?>
+					</span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li> <a href="setting.php">
+							<?php mylan("App Functions ", "وظائف التطبيق "); ?>
+						</a> </li>
+
+				</ul>
+			</li>
+
+
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link">
+					<i class="mdi mdi-iframe-braces"></i>
+					<span>
+						<?php mylan("Backup Solution ", "حل احتياطي "); ?>
+					</span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li> <a href="sql-backup.php">
+							<?php mylan("SQL-Backup ", "SQL- النسخ الاحتياطي "); ?>
+						</a> </li>
+					<li> <a href="data-backup.php">
+							<?php mylan("Media Backup ", " وسائط النسخ الاحتياطي"); ?>
+						</a> </li>
+				</ul>
+			</li>
+
+			<li class="side-nav-title side-nav-item">
+				<?php mylan(" USER MANAGEMENT", "إدارةالمستخدم "); ?>
+			</li>
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link">
+					<i class="uil-users-alt"></i>
+					<span>
+						<?php mylan("User ", "المستعمل "); ?>
+					</span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li>
+						<a href="user.php">
+							<?php mylan("Manage User ", "إدارة المستخدم "); ?>
+						</a>
+					</li>
+
+
+				</ul>
+			</li>
+
+
+			<li class="side-nav-title side-nav-item">APP MANAGEMENT</li>
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link"><i
+						class="mdi mdi-tools"></i><span>Generator</span><span class="menu-arrow"></span></a>
+				<ul class="side-nav-second-level" aria-expanded="true">
+					<li><a href="generator.php">Manage Generator</a></li>
+				</ul>
+			</li>
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link"><i
+						class="mdi mdi-bank-outline"></i><span>Bank</span><span class="menu-arrow"></span></a>
+				<ul class="side-nav-second-level" aria-expanded="true">
+					<li><a href="bank.php">Manage Bank</a></li>
+				</ul>
+			</li>
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link"><i
+						class="dripicons-map"></i><span>Sites</span><span class="menu-arrow"></span></a>
+				<ul class="side-nav-second-level" aria-expanded="true">
+					<li><a href="sites.php">Manage Sites</a></li>
+				</ul>
+			</li>
+
+			<li class="side-nav-title side-nav-item">ENQUIRY MANAGEMENT</li>
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link"><i
+						class=" mdi mdi-file-replace-outline"></i><span>Replacement</span><span class="menu-arrow"></span></a>
+				<ul class="side-nav-second-level" aria-expanded="true">
+					<li><a href="replacement.php?view=all">Manage Replacement</a></li>
+				</ul>
+			</li>
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link"><i
+						class="uil-window"></i><span>Inspection</span><span class="menu-arrow"></span></a>
+				<ul class="side-nav-second-level" aria-expanded="true">
+					<li><a href="inspection.php?view=all">Manage Inspection</a></li>
+				</ul>
+			</li>
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link"><i
+						class="mdi mdi-settings-transfer-outline"></i><span>Complaint</span><span class="menu-arrow"></span></a>
+				<ul class="side-nav-second-level" aria-expanded="true">
+					<li><a href="complaint.php?view=all">Manage Complaint</a></li>
+				</ul>
+			</li>
+
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link"><i
+						class="uil-user-hard-hat"></i><span>Site-user</span><span class="menu-arrow"></span></a>
+				<ul class="side-nav-second-level" aria-expanded="true">
+					<li><a href="site-user.php?view=all">Manage Site-user</a></li>
+				</ul>
+			</li>
+
+
+
+			<br><br><br><br><br>
+
+
+
+		</ul>
+
+
+		<div class="clearfix"></div>
+
+	</div>
+	<!-- Sidebar -left -->
+
+</div>

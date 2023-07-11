@@ -28,7 +28,7 @@
                             <!-- Logo -->
                             <div class="card-header pt-4 pb-4 text-center bg-primary">
                                 <a href="index.html">
-                                    <span><img src="assets/images/logo-light.png" alt="" height="18"></span>
+                                    <span><img src="assets/images/logo_sm.png" alt="" height="18"></span>
                                 </a>
                             </div>
                             

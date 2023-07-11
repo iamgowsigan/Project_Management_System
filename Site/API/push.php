@@ -72,10 +72,10 @@
 											<ol class="breadcrumb m-0">
 												<li class="breadcrumb-item"><a href="javascript: void(0);"><?=$projectname;?></a></li>
 												<li class="breadcrumb-item"><a href="dashboard.php"><?php mylan("Dashboard ","لوحة القيادة "); ?></a></li>
-												<li class="breadcrumb-item active"><?php mylan("Notification ","إشعار "); ?></li>
+												<li class="breadcrumb-item active"><?php mylan("Notification ","تنبيه "); ?></li>
 											</ol>
 										</div>
-										<h4 class="page-title"><?php mylan("Notification ","إشعار "); ?></h4>
+										<h4 class="page-title"><?php mylan("Notification ","تنبيه "); ?></h4>
 									</div>
 								</div>
 							</div>   
@@ -102,7 +102,7 @@
 												
 												<div class="col-12">
 													<div class="form-group mb-3">
-														<label for="validationCustom01"><?php mylan("Title ","عنوان "); ?> </label>
+														<label for="validationCustom01"><?php mylan("Title ","لقب "); ?> </label>
 														<input type="text" class="form-control" name="title"  required>
 													</div>
 												</div>
@@ -141,7 +141,18 @@
 							</div> <!-- end col-->		
 							
 							
-					
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
 							<!-- --------------->							
 							<!-- container End-->							
 							<!------------------>							

@@ -17,7 +17,7 @@
 			$last_id = mysqli_insert_id($con);
 		}
 		$uname = $_SESSION['login'];
-		$queryy = mysqli_query($con, "insert into adminlog(name,action) values('$uname','$table Added - $last_id')");
+		$queryy = mysqli_query($con, "insert into adminlog(name,action) values('$uname','$table Added')");
 		return $last_id;
 	}
 	
@@ -48,7 +48,6 @@
 	function Uploadimage($name,$value){
 		include('includes/config.php');
 		$file_name = $_FILES[$value]['name'];
-		if($file_name!=''){
 		$file_tmp = $_FILES[$value]['tmp_name'];
 		$temp = explode(".", $_FILES[$value]["name"]);
 		$file_name = $name . round(microtime(true)) . '.' . end($temp);
@@ -74,9 +73,7 @@
 			}else{
 			return '';
 		}
-	}else{
-		return '';
-	}
+		
 	}
 	
 	function Selectdata($sql){
@@ -124,20 +121,6 @@
 		return $cnt;
 		
 		
-	}
-	
-	function AdminLog($name='', $action='' ){
-		include('includes/config.php');
-		
-		$last_id="0";
-		
-		$qry = "insert into adminlog (name,action) values ('$name','$action')";
-		$query = mysqli_query($con, $qry );
-		if ($query) {
-			$last_id = mysqli_insert_id($con);
-		}
-
-		return $last_id;
 	}
 	
 	

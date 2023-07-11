@@ -3,8 +3,6 @@
 	include('includes/config.php');
 	error_reporting(0);
 	include 'includes/language.php';
-	include 'includes/dbhelp.php';
-	include 'includes/formdata.php';
 	if(strlen($_SESSION['login'])==0)
 	{ 
 		header('location:index.php');
@@ -16,11 +14,14 @@
 		if(isset($_POST['updatee']))
 		{
 			
+			
 			$menumode = addslashes($_POST['menumode']);
 			$bodymode = addslashes($_POST['bodymode']);
 			$iconmode = addslashes($_POST['iconmode']);
 			$activitylist = addslashes($_POST['activitylist']);
 		
+			
+			
 			
 			$query = mysqli_query($con, "UPDATE admin_theam SET 
 			left_menu='$menumode',
@@ -36,6 +37,9 @@
 				$error = "Something Wrong";
 			}
 		}
+		
+		
+		
 		
 		
 	?>
@@ -61,10 +65,10 @@
 											<ol class="breadcrumb m-0">
 												<li class="breadcrumb-item"><a href="javascript: void(0);"><?=$projectname;?></a></li>
 												<li class="breadcrumb-item"><a href="dashboard.php"><?php mylan("Settings ","إعدادات "); ?></a></li>
-												<li class="breadcrumb-item active"><?php mylan("Themes ","ثيمات "); ?></li>
+												<li class="breadcrumb-item active"><?php mylan("Theams ","دروع "); ?></li>
 											</ol>
 										</div>
-										<h4 class="page-title"><?php mylan("Theme Settings","إعدادات الموضوع"); ?></h4>
+										<h4 class="page-title"><?php mylan("Theme Settings","إعدادات الموضوع "); ?></h4>
 									</div>
 								</div>
 							</div>   
@@ -78,7 +82,7 @@
 								<?php
 									
 									$query1 = mysqli_query($con, "Select * from admin_theam WHERE t_id=1");
-									while ($row = mysqli_fetch_array($query1)) {
+									while ($rowp = mysqli_fetch_array($query1)) {
 									?>	
 									<form class="form" method="post" enctype="multipart/form-data">
 										
@@ -93,9 +97,9 @@
 														<div class="form-group mb-3">
 															<label for="validationCustom01"><?php mylan("Left side Menu Color ","لون قائمة الجانب الأيسر "); ?></label>
 															<select class="form-control select2" data-toggle="select2"  name="menumode">
-																<option <?php if(strpos($row['left_menu'],'light')!==false)echo"selected";?> value="light"><?php mylan("Light Color ","لون فاتح "); ?></option>
-																<option <?php if(strpos($row['left_menu'],'dark')!==false)echo"selected";?> value="dark"><?php mylan("Dark Color ","لون غامق "); ?></option>
-																<option <?php if(strpos($row['left_menu'],'default')!==false)echo"selected";?> value="default"><?php mylan(" Blue Color","اللون الأزرق "); ?></option>
+																<option <?php if(strpos($rowp['left_menu'],'light')!==false)echo"selected";?> value="light"><?php mylan("Light Color ","لون فاتح "); ?></option>
+																<option <?php if(strpos($rowp['left_menu'],'dark')!==false)echo"selected";?> value="dark"><?php mylan("Dark Color ","لون غامق "); ?></option>
+																<option <?php if(strpos($rowp['left_menu'],'default')!==false)echo"selected";?> value="default"><?php mylan(" Blue Color","اللون الأزرق "); ?></option>
 																
 															</select>
 														</div>
@@ -107,8 +111,8 @@
 															<label for="validationCustom01"><?php mylan("Content Area Color ","لون منطقة المحتوى "); ?></label>
 															<select class="form-control select2" data-toggle="select2"  name="bodymode">
 																
-																<option <?php if(strpos($row['content_area'],'false')!==false)echo"selected";?> value="false"><?php mylan("Light Mode "," وضع الضوء"); ?></option>
-																<option <?php if(strpos($row['content_area'],'true')!==false)echo"selected";?> value="true"><?php mylan("Dark Mode ","الوضع الداكن "); ?></option>
+																<option <?php if(strpos($rowp['content_area'],'false')!==false)echo"selected";?> value="false"><?php mylan("Light Mode "," وضع الضوء"); ?></option>
+																<option <?php if(strpos($rowp['content_area'],'true')!==false)echo"selected";?> value="true"><?php mylan("Dark Mode ","الوضع الداكن "); ?></option>
 																
 															</select>
 														</div>
@@ -119,26 +123,49 @@
 														<div class="form-group mb-3">
 															<label for="validationCustom01"><?php mylan("Show Icon Only "," إظهار الأيقونة فقط"); ?></label>
 															<select class="form-control select2" data-toggle="select2"  name="iconmode">
-																<option <?php if(strpos($row['left_menu_icon'],'true')!==false)echo"selected";?> value="true"><?php mylan("Yes ","نعم "); ?></option>
-																<option <?php if(strpos($row['left_menu_icon'],'false')!==false)echo"selected";?> value="false"><?php mylan(" No"," لا"); ?></option>
+																<option <?php if(strpos($rowp['left_menu_icon'],'true')!==false)echo"selected";?> value="true"><?php mylan("Yes ","نعم "); ?></option>
+																<option <?php if(strpos($rowp['left_menu_icon'],'false')!==false)echo"selected";?> value="false"><?php mylan(" No"," لا"); ?></option>
 																
 															</select>
 														</div>
 													</div>
 													
-													<?php  forminput(  'Activity List Count',  'activitylist',  $row['activity_list'] ,  'required',  '6',  'number'  ); ?>
-																								
+													
+													
+													
+													
+													<div class="col-6">
+														<div class="form-group mb-3">
+															<label for="validationCustom01"><?php mylan("Activity List Count ","عدد قائمة النشاط "); ?></label>
+															<input type="number" class="form-control" name="activitylist" value="<?php echo htmlentities($rowp['activity_list']); ?>">
+															
+															
+														</div>
+													</div>
+													
+													
+																				
+													
+													
+													
+													
 												</div>
-												<button name="updatee" class="btn btn-primary" type="submit"><?php mylan("Save Settings ","احفظ التغييرات"); ?></button>
+												<button name="updatee" class="btn btn-primary" type="submit"><?php mylan("Save Settings ","عدد قائمة النشاط "); ?></button>
 												
 												
 											</div> <!-- end card-body-->
 										</div> <!-- end card-->
 									</div> <!-- end col-->		
 									
+									
+									
 								</form>   
 								
 							<?php } ?>	
+							
+							
+							
+							
 							
 							
 							

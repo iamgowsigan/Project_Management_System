@@ -57,7 +57,7 @@
 					<?php if($row['admin_image']){ ?>
 						<img src="<?php echo htmlentities($imgloc.$row['admin_image']); ?>" alt="image"  class="rounded-circle">
 						<?php } else{ ?>
-						<img src="assets/images/avatar-1.jpg" alt="image"  class="rounded-circle">
+						<img src="assets/images/users/avatar-1.jpg" alt="image"  class="rounded-circle">
 					<?php } ?>
 				</span>
 				<span>

@@ -7,7 +7,7 @@ function sendMessage($title,$message,$image,$topic) {
 	$action = 'FLUTTER_NOTIFICATION_CLICK';
 	
 	
-    $api_key = 'AAAAD7twuf0:APA91bEHqMg21kJ7WwzMdPRlMTz9tB33bRUQL0PR70n7Yoi2Wbdwg_35CtOx3p4Htv1qdsm7m700RagYiwfxZOwiGjO3HFLpF6D9B98C8MPMrCZ9hvD9zYph2Z417cAL8j74k8xDy39x';
+    $api_key = 'AAAApVklzl0:APA91bE_Kq8IbJLDQ48RngKJrZE0J8jcH9Iyr47JotZQWcoZFEXKzbGetEUt6I9qSeX-FkKYH2Qg-ClvKMJy1CxkBS9UQxyQ33YC3lVq_vHKTUWyUzHG7Lg_U2q6MHtZqgKqeW_SLBkC';
                 
     $fields = array (
         'to' => $tooo,
@@ -57,7 +57,7 @@ function sendMessageScreen($title,$message,$image,$topic,$id,$screen) {
 	$action = 'FLUTTER_NOTIFICATION_CLICK';
 	
 	
-    $api_key = 'AAAAD7twuf0:APA91bEHqMg21kJ7WwzMdPRlMTz9tB33bRUQL0PR70n7Yoi2Wbdwg_35CtOx3p4Htv1qdsm7m700RagYiwfxZOwiGjO3HFLpF6D9B98C8MPMrCZ9hvD9zYph2Z417cAL8j74k8xDy39x';
+    $api_key = 'AAAApVklzl0:APA91bE_Kq8IbJLDQ48RngKJrZE0J8jcH9Iyr47JotZQWcoZFEXKzbGetEUt6I9qSeX-FkKYH2Qg-ClvKMJy1CxkBS9UQxyQ33YC3lVq_vHKTUWyUzHG7Lg_U2q6MHtZqgKqeW_SLBkC';
                 
     $fields = array (
         'to' => $tooo,

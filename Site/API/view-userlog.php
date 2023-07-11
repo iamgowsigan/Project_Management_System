@@ -3,8 +3,6 @@
 	include('includes/config.php');
 	error_reporting(0);
 	include 'includes/language.php';
-	include 'includes/dbhelp.php';
-	include 'includes/formdata.php';
 	
 	if(strlen($_SESSION['login'])==0)
 	{ 
@@ -93,7 +91,7 @@
 											<ol class="breadcrumb m-0">
 												<li class="breadcrumb-item"><a href="javascript: void(0);"><?=$projectname;?></a></li>
 												<li class="breadcrumb-item"><a href="javascript: void(0);"><?php mylan("Dashboard ","لوحة القيادة "); ?></a></li>
-												<li class="breadcrumb-item active"><?php mylan("User "," المستعمل"); ?></li>
+												<li class="breadcrumb-item active"><?php mylan(" "," "); ?><?php mylan("User "," المستعمل"); ?></li>
 											</ol>
 										</div>
 										<h4 class="page-title"><?php mylan("User Activities ","أنشطة المستخدم "); ?></h4>
@@ -116,6 +114,7 @@
 												<thead>
 													<tr>
 														<th><?php mylan("ID ","هوية شخصية "); ?></th>
+														<th><?php mylan("Profile "," الملف الشخصي"); ?></th>
 														<th><?php mylan("Name ","اسم "); ?></th>	
 														<th><?php mylan("Action ","عمل "); ?></th>
 														<th><?php mylan("Time ","زمن "); ?></th>
@@ -141,13 +140,24 @@
 																	while ($row = mysqli_fetch_array($query)) {
 																	?>
 																	<tr>
-																		<td><?php text( $row['id'], $strong=false, $small=false, $badge=false, $lighten=false, $outline=false, '' ); ?></td>
-																																				
-																		<td><?php text( $row['admin_name'], $strong=true, $small=false, $badge=false, $lighten=false, $outline=false, '' ); ?></td> 
+																		<td><?php echo htmlentities($row['id']); ?></td>
 																		
-																		<td><?php text( $row['action'], $strong=false, $small=true, $badge=false, $lighten=false, $outline=false, '' ); ?></td> 
+																		<td>
+																			
+																			<img src="<?php echo htmlentities($imgloc.$row['admin_image']); ?>" alt="image" class="img-fluid avatar-md rounded" onerror="this.src='assets/images/users/avatar-1.jpg'">
+																			
+																			
+																		</td>
 																		
-																		<td><?php text( $row['time'], $strong=false, $small=true, $badge=true, $lighten=true, $outline=false, 'info' ); ?></td> 
+																		<td><strong><?php echo htmlentities($row['admin_name']); ?></strong></td>
+															
+																		
+																		<td><small><?php echo htmlentities($row['action']); ?></small></td>
+																		
+																		<td><small><?php echo htmlentities($row['time']); ?></small></td>
+																		
+																		
+																	
 																		
 																	</tr>
 																<?php } } ?>
@@ -157,6 +167,61 @@
 												</div> <!-- end card-body-->
 											</div> <!-- end card-->
 										</div> <!-- end col-->		
+										
+										
+										
+										
+										<!-- Form Model-->		
+										<div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+											<div class="modal-dialog  modal-lg modal-dialog-centered">
+												<div class="modal-content">
+													
+													<div class="modal-body">
+														<div class="text-center mt-2 mb-4">
+															<a href="index.html" class="text-success">
+																<span><img src="assets/images/logo_sm_dark.png" alt="" height="18"></span>
+															</a>
+														</div>
+														
+														<form class="pl-3 pr-3"  method="post" enctype="multipart/form-data">
+															
+															<input type="hidden" name="bookId" id="bookId" value=""/>
+															
+															
+															<div class="form-group">
+																<label for="username">Test Name</label>
+																<input class="form-control" type="text" id="username" required="" name="name">
+															</div>
+															
+															<div class="form-group">
+																<label for="emailaddress">Detail</label>
+																<textarea class="form-control" type="email" placeholder="Test Detail" name="detail"></textarea>
+															</div>
+															
+															
+															
+															<div class="form-group">
+																<label for="password">Price</label>
+																<input class="form-control" type="number" required="" name="price">
+															</div>
+															
+															
+															
+															
+															<div class="form-group text-center">
+																<button class="btn btn-primary" type="submit" name="submit">Add Test</button>
+															</div>
+															
+														</form>
+														
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<!--  Form modal end -->
+										
+										
 										
 										
 										
@@ -178,16 +243,16 @@
 						<!-- Apex js -->
 						<script src="assets/js/vendor/apexcharts.min.js"></script>
 						
-					<!-- Todo js -->
-					<script src="assets/js/ui/component.todo.js"></script>
-					<script src="assets/js/vendor/jquery.dataTables.min.js"></script>
-					<script src="assets/js/vendor/dataTables.bootstrap4.js"></script>
-					<script src="assets/js/vendor/dataTables.responsive.min.js"></script>
-					<script src="assets/js/vendor/responsive.bootstrap4.min.js"></script>
-					
-					<!-- Datatable Init js -->
-					<script src="assets/js/pages/demo.datatable-init.js"></script>
-					<!-- end demo js-->
+						<!-- Todo js -->
+						<script src="assets/js/ui/component.todo.js"></script>
+						<script src="assets/js/vendor/jquery.dataTables.min.js"></script>
+						<script src="assets/js/vendor/dataTables.bootstrap4.js"></script>
+						<script src="assets/js/vendor/dataTables.responsive.min.js"></script>
+						<script src="assets/js/vendor/responsive.bootstrap4.min.js"></script>
+						
+						<!-- Datatable Init js -->
+						<script src="assets/js/pages/demo.datatable-init.js"></script>
+						<!-- end demo js-->
 					</body>
-					</html>
-					<?php } ?>																																											
+				</html>
+			<?php } ?>										

@@ -3,8 +3,6 @@
 	include('includes/config.php');
 	error_reporting(0);
 	include 'includes/language.php';
-	include 'includes/formdata.php';
-	include 'includes/dbhelp.php';
 	
 	if(strlen($_SESSION['login'])==0)
 	{ 
@@ -52,6 +50,7 @@
 		
 		if(isset($_POST['updatee']))
 		{
+			
 			
 			$name = addslashes($_POST['name']);
 			$phone = addslashes($_POST['phone']);
@@ -128,7 +127,7 @@
 											<ol class="breadcrumb m-0">
 												<li class="breadcrumb-item"><a href="javascript: void(0);"><?=$projectname;?></a></li>
 												<li class="breadcrumb-item"><a href="dashboard.php"><?php mylan("Dashboard "," لوحة القيادة"); ?></a></li>
-												<li class="breadcrumb-item active"><?php mylan("Account ","الحساب "); ?></li>
+												<li class="breadcrumb-item active"><?php mylan("Account ","حساب "); ?></li>
 											</ol>
 										</div>
 										<h4 class="page-title"><?php mylan("My Account ","حسابي "); ?></h4>
@@ -151,10 +150,26 @@
 											</p>
 											<form class="form" method="post" name="chngpwd" enctype="multipart/form-data">
 												
-												<?php  forminput(  'Old Password',  'password',  '' ,  'required',  '12',  'text'  ); ?>
-												<?php  forminput(  'New Password',  'newpassword',  '' ,  'required',  '12',  'text'  ); ?>
-												<?php  forminput(  'Confirm Password',  'confirmpassword',  '' ,  'required',  '12',  'password'  ); ?>
-													
+												<div class="form-group mb-3">
+													<label for="validationCustom01"><?php mylan("Old Password ","كلمة سر قديمة "); ?></label>
+													<input type="text" class="form-control"
+													placeholder="" name="password" >
+												</div>
+												
+												<div class="form-group mb-3">
+													<label for="validationCustom02"><?php mylan("New Password ","كلمة السر الجديدة "); ?></label>
+													<input type="text" class="form-control" 
+													placeholder="" name="newpassword" >
+												</div>
+												
+												<div class="form-group mb-3">
+													<label for="validationCustom02"><?php mylan("Confirm Password "," تأكيد كلمة المرور"); ?></label>
+													<input type="password" class="form-control" 
+													placeholder="" name="confirmpassword" >
+												</div>
+												
+												
+												
 												<button name="submit" class="btn btn-primary" type="submit"><?php mylan(" Change Password","تغيير كلمة المرور "); ?></button>
 											</form>    
 											
@@ -173,15 +188,41 @@
 											<?php
 												
 												$query1 = mysqli_query($con, "Select * from admin WHERE id=$adminid");
-												while ($row = mysqli_fetch_array($query1)) {
+												while ($rowp = mysqli_fetch_array($query1)) {
 												?>							
 												
 												<form class="form" method="post" enctype="multipart/form-data">
 													
-													<?php  forminput(  'Name',  'name',  $row['admin_name'] ,  'required',  '12',  'text'  ); ?>
-													<?php  forminput(  'Phone',  'phone',  $row['admin_phone'],  'required',  '12',  'text'  ); ?>
-													<?php  formtextarea(  'About you',  'about',  $row['admin_about'],  'required',  '12',  'text'  ); ?>
-													<?php  formimage(  'Profile Image',  'image',  $row['admin_image'],  '',  '6',  'oldimage',  '60',  '80',  'cover'  ); ?>
+													<div class="form-group mb-3">
+														<label for="validationCustom01"><?php mylan("Name ","اسم "); ?></label>
+														<input type="text" class="form-control" name="name" value="<?php echo htmlentities($rowp['admin_name']); ?>">
+													</div>
+													
+													<div class="form-group mb-3">
+														<label for="validationCustom02"><?php mylan("Phone "," هاتف"); ?></label>
+														<input type="text" class="form-control" name="phone" value="<?php echo htmlentities($rowp['admin_phone']); ?>">
+													</div>
+													
+													
+										
+													
+													<div class="form-group mb-3">
+														<label for="validationCustom03"><?php mylan("About you ","حولك "); ?></label>
+														<textarea class="form-control" row="4" name="about"><?php echo htmlentities($rowp['admin_about']); ?></textarea>
+													</div>
+													
+													<div class="form-group mb-3">
+														<label for="validationCustom03"><?php mylan("Profile Image ","صورة الملف الشخصي "); ?></label>
+														<input type="file" class="form-control-file" id="exampleInputFile" name="image" ><br><br>
+														
+														<?php if($rowp['admin_image']){ ?>
+															<img src="<?php echo htmlentities($imgloc.$rowp['admin_image']); ?>" alt="image" class="img-fluid avatar-md rounded" onerror="this.src='assets/images/users/avatar-1.jpg'">
+															<?php } else{ ?>
+															<img src="assets/images/users/avatar-1.jpg" alt="image" class="img-fluid avatar-md rounded">
+														<?php } ?>
+														<input type="hidden" name="oldimage" value="<?php echo htmlentities($rowp['admin_image']); ?>">
+														
+													</div>
 													
 													
 													<button name="updatee" class="btn btn-primary" type="submit"><?php mylan(" Update Profile"," تحديث الملف"); ?></button>
@@ -190,6 +231,17 @@
 										</div> <!-- end card-body-->
 									</div> <!-- end card-->
 								</div> <!-- end col-->		
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
 								
 								
 								
@@ -219,4 +271,4 @@
 				<!-- end demo js-->
 			</body>
 		</html>
-	<?php } ?>																
+	<?php } ?>	

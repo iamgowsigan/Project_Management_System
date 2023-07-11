@@ -1,264 +1,162 @@
-<?php
-
-$uid = $_SESSION['uid'];
-$power = $_SESSION['power'];
-include('includes/config.php');
-
-$cservice=Countdata("Select * from inspection WHERE adminview='0'");
-$creplacement=Countdata("Select * from replacement WHERE adminview='0'");
-$ccomplient=Countdata("Select * from compliant WHERE adminview='0'");
-		
-
-
+<?php 
+	
+ 
 ?>
 <div class="left-side-menu">
-
+    
+	<!-- LOGO -->
 	<a href="dashboard.php" class="logo text-center logo-light">
 		<span class="logo-lg">
-			<img src="assets/images/logowhitetext.png" alt="" height="50">
+			<img src="assets/images/logo.png" alt="" width="40%">
 		</span>
 		<span class="logo-sm">
-			<img src="assets/images/logowhitetext.png" alt="" height="50">
+			<img src="assets/images/logo.png" alt="" width="40%">
 		</span>
 	</a>
-
+	
 	<!-- LOGO -->
 	<a href="dashboard.php" class="logo text-center logo-dark">
 		<span class="logo-lg">
-			<img src="assets/images/logowhitetext.png" alt="" height="50">
+			<img src="assets/images/logo.png" alt="" width="40%">
 		</span>
 		<span class="logo-sm">
-			<img src="assets/images/logowhitetext.png" alt="" height="50">
+			<img src="assets/images/logo.png" alt="" width="40%">
 		</span>
 	</a>
-
-
-
+    
 	<div class="h-100" id="left-side-menu-container" data-simplebar>
-
-
+		
+		
 		<!--- Sidemenu -->
 		<ul class="metismenu side-nav">
-
-
-
-			<li class="side-nav-title side-nav-item">
-				<?php mylan("SETTINGS ", " إعدادات"); ?>
-			</li>
-
+			
+			
+			
+			<li class="side-nav-title side-nav-item" style="color:#fff;"><?php mylan("SETTINGS "," الإعدادات"); ?></li>
+			
 			<li class="side-nav-item">
 				<a href="javascript: void(0);" class="side-nav-link">
 					<i class="mdi mdi-shield-star"></i>
-					<span>
-						<?php mylan("Administrator ", "مدير "); ?>
-					</span>
+					<span> <?php mylan("Administrator ","مدير "); ?> </span>
 					<span class="menu-arrow"></span>
 				</a>
 				<ul class="side-nav-second-level" aria-expanded="false">
-					<li> <a href="myaccount.php">
-							<?php mylan(" My Account", "حسابي "); ?>
-						</a> </li>
-					<li> <a href="account.php">
-							<?php mylan("Project Info ", "معلومات المشروع "); ?>
-						</a> </li>
-					<li> <a href="admin-user.php">
-							<?php mylan("User Management ", " إدارةالمستخدم"); ?>
-						</a> </li>
-					<li> <a href="view-userlog.php">
-							<?php mylan("User Logs ", "سجلات المستخدم "); ?>
-						</a> </li>
-					<li> <a href="theams-settings.php">
-							<?php mylan("Themes Settings ", "إعدادات السمات "); ?>
-						</a> </li>
-
-
+					<li> <a href="myaccount.php"><?php mylan(" My Account","حسابي "); ?></a> </li>
+					<li> <a href="add-user.php"><?php mylan("User Management "," إدارةالمستخدم"); ?></a> </li>
+					<li> <a href="view-userlog.php"><?php mylan("User Logs ","سجلات المستخدم "); ?></a> </li>
+					<li> <a href="theams-settings.php"><?php mylan("Themes Settings ","إعدادات Themes "); ?></a> </li>
+					
+					
 				</ul>
 			</li>
-
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link">
-					<i class="mdi mdi-cellphone-android"></i>
-					<span>
-						<?php mylan("Application ", "طلب "); ?>
-					</span>
-					<span class="menu-arrow"></span>
-				</a>
-				<ul class="side-nav-second-level" aria-expanded="false">
-					<li> <a href="setting.php">
-							<?php mylan("App Functions ", "وظائف التطبيق "); ?>
-						</a> </li>
-
-				</ul>
-			</li>
-
-
-
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link">
-					<i class="mdi mdi-iframe-braces"></i>
-					<span>
-						<?php mylan("Backup Solution ", "حل احتياطي "); ?>
-					</span>
-					<span class="menu-arrow"></span>
-				</a>
-				<ul class="side-nav-second-level" aria-expanded="false">
-					<li> <a href="sql-backup.php">
-							<?php mylan("SQL-Backup ", "SQL- النسخ الاحتياطي "); ?>
-						</a> </li>
-					<li> <a href="data-backup.php">
-							<?php mylan("Media Backup ", " وسائط النسخ الاحتياطي"); ?>
-						</a> </li>
-				</ul>
-			</li>
-
-			<li class="side-nav-title side-nav-item">
-				<?php mylan(" USER MANAGEMENT", "إدارةالمستخدم "); ?>
-			</li>
-
+			
+			
+			<li class="side-nav-title side-nav-item" style="color:#fff;">STUDENT MANAGEMENT</li>
+			
 			<li class="side-nav-item">
 				<a href="javascript: void(0);" class="side-nav-link">
 					<i class="uil-users-alt"></i>
-					<span>
-						<?php mylan("Service Persons ", "المستعمل "); ?>
-					</span>
+					<span> Students </span>
 					<span class="menu-arrow"></span>
 				</a>
 				<ul class="side-nav-second-level" aria-expanded="false">
 					<li>
-						<a href="service-persons.php">
-							<?php mylan("Manage Service Persons ", "إدارة المستخدم "); ?>
-						</a>
+						<a href="student.php">Manage Students</a>
 					</li>
+					
+					
 				</ul>
+
 			</li>
 
+			
+			<li class="side-nav-title side-nav-item" style="color:#fff;">ACADEMIC MANAGEMENT</li>
+			
 			<li class="side-nav-item">
 				<a href="javascript: void(0);" class="side-nav-link">
-					<i class="uil-book-reader"></i>
-					<span>
-						<?php mylan("Bank Persons ", "المستعمل "); ?>
-					</span>
+					<i class="uil uil-puzzle-piece"></i>
+					<span> Department </span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					
+					<li><a href="department.php">Manage Department</a></li>
+					
+					
+					
+				</ul>
+			</li>
+			
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link">
+					<i class="mdi mdi-school"></i>
+					<span> Faculty</span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li><a href="faculty.php">Manage Faculty</a></li>
+					
+				</ul>
+				
+			</li>
+			
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link">
+					<i class="mdi mdi-account-group"></i>
+					<span> SIG</span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li><a href="sig.php">Manage SIG</a></li>
+					
+				</ul>
+				
+			</li>
+			
+ 
+			
+			<li class="side-nav-title side-nav-item" style="color:#fff;">PROJECT MANAGEMENT</li>
+			
+			<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link">
+					<i class="uil-briefcase"></i>
+					<span>Projects</span>
 					<span class="menu-arrow"></span>
 				</a>
 				<ul class="side-nav-second-level" aria-expanded="false">
 					<li>
-						<a href="bank-persons.php">
-							<?php mylan("Manage Bank Persons ", "إدارة المستخدم "); ?>
-						</a>
+						<a href="projects.php">Manage Projects</a>
 					</li>
+					
 				</ul>
-			</li>
-
-
-			<li class="side-nav-title side-nav-item">APP MANAGEMENT</li>
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link"><i
-						class="mdi mdi-map-marker-alert"></i><span>Cities</span><span class="menu-arrow"></span></a>
-				<ul class="side-nav-second-level" aria-expanded="true">
-					<li><a href="city.php">Manage City</a></li>
-				</ul>
-			</li>
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link"><i
-						class="mdi mdi-tools"></i><span>Generator</span><span class="menu-arrow"></span></a>
-				<ul class="side-nav-second-level" aria-expanded="true">
-					<li><a href="generator.php">Manage Generator</a></li>
-				</ul>
-			</li>
-
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link"><i
-						class="mdi mdi-bank-outline"></i><span>Bank</span><span class="menu-arrow"></span></a>
-				<ul class="side-nav-second-level" aria-expanded="true">
-					<li><a href="bank.php">Manage Bank</a></li>
-				</ul>
-			</li>
-
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link"><i
-						class="dripicons-map"></i><span>Sites</span><span class="menu-arrow"></span></a>
-				<ul class="side-nav-second-level" aria-expanded="true">
-					<li><a href="sites.php">Manage Sites</a></li>
-				</ul>
-			</li>
-
-			<li class="side-nav-title side-nav-item">ENQUIRY MANAGEMENT</li>
-
+			</li>	
 			
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link"><i
-						class="uil-window"></i>
-						<span>Service Visits</span>
-						<?php
-						if($cservice==null || $cservice==0 || $cservice==''){
-							echo '<span class="menu-arrow"></span>';
-							}else{
-							echo '<span class="badge badge-success float-right">'.$cservice.'</span>';
-						}
-					?>
-
-					</a>
-				<ul class="side-nav-second-level" aria-expanded="true">
-					<li><a href="inspection.php?view=all">Manage AMC Service</a></li>
+			<li class="side-nav-title side-nav-item" style="color:#fff;">ENQUIRY MANAGEMENT</li>
+						<li class="side-nav-item">
+				<a href="javascript: void(0);" class="side-nav-link">
+					<i class="uil-comment-question"></i>
+					<span>Enquiry</span>
+					<span class="menu-arrow"></span>
+				</a>
+				<ul class="side-nav-second-level" aria-expanded="false">
+					<li>
+						<a href="enquiry.php">Manage Enquiry</a>
+					</li>
+					
 				</ul>
 			</li>
-
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link"><i
-						class=" mdi mdi-file-replace-outline"></i><span>Replacement</span><?php
-						if($creplacement==null || $creplacement==0 || $creplacement==''){
-							echo '<span class="menu-arrow"></span>';
-							}else{
-							echo '<span class="badge badge-success float-right">'.$creplacement.'</span>';
-						}
-					?></a>
-				<ul class="side-nav-second-level" aria-expanded="true">
-					<li><a href="replacement.php?view=all">Manage Replacement</a></li>
-				</ul>
-			</li>
-
 			
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link"><i
-						class="mdi mdi-settings-transfer-outline"></i><span>Complaint</span><?php
-						if($ccomplient==null || $ccomplient==0 || $ccomplient==''){
-							echo '<span class="menu-arrow"></span>';
-							}else{
-							echo '<span class="badge badge-success float-right">'.$ccomplient.'</span>';
-						}
-					?></a>
-				<ul class="side-nav-second-level" aria-expanded="true">
-					<li><a href="complaint.php?view=all">Manage Complaint</a></li>
-				</ul>
-			</li>
-
-
-			<li class="side-nav-title side-nav-item">REPORT MANAGEMENT</li>
-
 			
-			<li class="side-nav-item">
-				<a href="javascript: void(0);" class="side-nav-link"><i
-						class="uil-window"></i>
-						<span>Reports</span>
-						<span class="menu-arrow"></span>
-
-					</a>
-				<ul class="side-nav-second-level" aria-expanded="true">
-					<li><a href="report-screen.php">Manage Report</a></li>
-				</ul>
-			</li>
-
-
 			<br><br><br><br><br>
-
-
-
+			
+			
+			
 		</ul>
-
-
+		
+		
 		<div class="clearfix"></div>
-
+		
 	</div>
 	<!-- Sidebar -left -->
-
-</div>
+	
+</div>							

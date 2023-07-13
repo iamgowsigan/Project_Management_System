@@ -7319,8 +7319,8 @@ a.close.disabled {
 	flex: 0 1 auto;
 	width: 30px;
 	height: 3px;
-	margin-right: 3px;
-	margin-left: 3px;
+	margin-right: auto;
+	margin-left: auto;
 	text-indent: -999px;
 	cursor: pointer;
 	background-color: #fff;
@@ -11182,9 +11182,9 @@ body {
 }
 
 .content-page {
-	margin-left: 260px;
+	margin: auto;
 	overflow: hidden;
-	padding: 70px 12px 65px;
+	padding: 0px;
 	min-height: 100vh
 }
 

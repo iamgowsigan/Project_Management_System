@@ -53,10 +53,10 @@
 		
 		<body class="loading" data-layout-config='{"leftSideBarTheme":"<?=$menumode;?>","layoutBoxed":false, "leftSidebarCondensed":<?=$iconmode;?>, "leftSidebarScrollable":false,"darkMode":<?=$bodymode;?>, "showRightSidebarOnStart": false}'>
 			<div class="wrapper">		
-				<?php include 'includes/left-navigation.php';?>
+				<?php include 'includes/top-bar.php';?>
 				<div class="content-page">
 					<div class="content">
-						<?php include 'includes/top-menu.php';?>
+						
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12">

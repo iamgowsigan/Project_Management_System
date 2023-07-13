@@ -4,7 +4,7 @@
 <meta content="Online training and Course Booking System" name="description" />
 <meta content="Gowsigan" name="author" />
 <!-- App favicon -->
-<link rel="shortcut icon" href="assets/images/logo.png">
+<link rel="shortcut icon" href="assets/images/logoonly.png">
 
 <!-- App css -->
 <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />

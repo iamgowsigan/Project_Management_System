@@ -18,7 +18,7 @@
 	$adminname=$_SESSION['adminname'];
 	$login=$_SESSION['login'];
 	$adminpower=$_SESSION['power'];
-	$projectname="Project Management";
+	$projectname="Drooob";
 	$projectcode="DR";
 	$currency=" AED ";
 	
